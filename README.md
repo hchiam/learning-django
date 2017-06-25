@@ -11,5 +11,11 @@ https://github.com/hchiam/djangoApp
 * Navigate to website folder so that you see manage.py and website folder.
 * `python manage.py runserver`
   * You might have to do something like this beforehand: `export PYTHONPATH=/usr/local/lib/python3.6/site-packages`
+  * To make it permanent (i.e. not have to type that every time), add `export PYTHONPATH=/usr/local/lib/python3.6/site-packages` to your .bash_profile file (`open ~/.bash_profile`).
 * Go to http://127.0.0.1:8000/ in your browser.
 * Hit Ctrl+c to stop the server.
+
+# create "app"
+* (Note to self: "apps" are like subdirectories in a URL, like different tabs.)
+* (Note to self: each "app" should have a one-liner of what it does.)
+* `python manage.py startapp app1`
