@@ -53,3 +53,28 @@ Remember 3 steps when you want to udpate changes to databases:
 1. change website/models.py
 2. `python manage.py makemigrations app1`
 3. `python manage.py migrate`
+
+# database API
+* `python manage.py shell` (and now you can write database commands!)
+* Then try these commands, one-by-one:
+
+"""
+from app1.models import Album, Song
+Album.objects.all()
+a = Album(artist="the new boston", album_title="Red", genre="Country", album_logo="https://thenewboston.com/photos/users/2/original/e1ee187e9e0225ba124ba1c7c9dbfa56.png")
+a.save()
+a.artist
+a.album_title
+a.id # this is the same
+a.pk # as this
+b = Album()
+b.artist = "artist2"
+b.album_title = 'title2'
+b.genre = 'Jazz'
+b.album_logo = 'https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-v2@2x.png'
+b.save()
+a.artist
+b.artist
+b.album_title = "High School"
+b.album_title
+"""
