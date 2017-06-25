@@ -24,3 +24,9 @@ https://github.com/hchiam/djangoApp
 * (Note: apps.py is basically app settings.)
 * (Note: models.py is app database model setup.)
 * (Note: views.py are basically python functions for requests/responses.)
+* Create a urls.py file inside app1.
+* Make website/urls.py include app1/urls.py.
+* Make app1/urls.py identify a request in the URL and call a function in app1/views.py.
+* Make a corresponding response function (in app1/views.py) to the request.
+* Go to http://127.0.0.1:8000/app1 in your browser.
+* (Note to self: website/website/urls.py --> urlpatterns --> app1/urls.py --> views.py function request response)

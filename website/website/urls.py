@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import include # added this manually
 
 """
 FORMAT:
 url(r'look for', what.to.do),
 """
-urlpatterns = [
+urlpatterns = [ # "whenever the user requests anything, do these checks:"
     url(r'^admin/', admin.site.urls),
+    url(r'^app1/', include('app1.urls')), # ...then go to app1/urls.py
 ]
