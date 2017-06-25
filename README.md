@@ -10,4 +10,5 @@ https://github.com/hchiam/djangoApp
 * (Note to self: we're usually going to use website/settings.py and website/urls.py)
 * Navigate to website folder so that you see manage.py and website folder.
 * `python manage.py runserver`
-* Go to 127.0.0.1:8000 in your browser.
+  * You might have to do something like this beforehand: `export PYTHONPATH=/usr/local/lib/python3.6/site-packages`
+* Go to http://127.0.0.1:8000/ in your browser.
