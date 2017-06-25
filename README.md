@@ -12,3 +12,4 @@ https://github.com/hchiam/djangoApp
 * `python manage.py runserver`
   * You might have to do something like this beforehand: `export PYTHONPATH=/usr/local/lib/python3.6/site-packages`
 * Go to http://127.0.0.1:8000/ in your browser.
+* Hit Ctrl+c to stop the server.
