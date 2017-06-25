@@ -36,7 +36,7 @@ https://github.com/hchiam/djangoApp
 * `python manage.py migrate` (to synchronize code with database)
   * website/settings.py INSTALLED_APPS --> checks app directories for required tables
 
-# create model (how you want to store your data)
+# create & activate models (how you want to store your data)
 * (Note: in Django, python class variables get converted to database columns.)
 * Create a class ("table") and variables ("columns") in app1/models.py, while specifying data types.
 * Make website/settings.py INSTALLED_APPS include app1/apps.py App1Config() as `'app1.apps.App1Config'`.
