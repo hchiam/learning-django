@@ -19,3 +19,8 @@ https://github.com/hchiam/djangoApp
 * (Note to self: "apps" are like subdirectories in a URL, like different tabs.)
 * (Note to self: each "app" should have a one-liner of what it does.)
 * `python manage.py startapp app1`
+* (Note: migrations folder is for connecting website to database.)
+* (Note: admin.py has admin functionality built in.)
+* (Note: apps.py is basically app settings.)
+* (Note: models.py is app database model setup.)
+* (Note: views.py are basically python functions for requests/responses.)
