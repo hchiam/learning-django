@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+"""
+FORMAT:
+url(r'look for', what.to.do),
+"""
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
