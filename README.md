@@ -12,7 +12,7 @@ https://github.com/hchiam/djangoApp
 * `python manage.py runserver`
   * You might have to do something like this beforehand: `export PYTHONPATH=/usr/local/lib/python3.6/site-packages`
   * To make it permanent (i.e. not have to type that every time), add `export PYTHONPATH=/usr/local/lib/python3.6/site-packages` to your .bash_profile file (`open ~/.bash_profile`).
-* Go to http://127.0.0.1:8000/ in your browser.
+* http://127.0.0.1:8000/
 * Hit Ctrl+c to stop the server.
 
 # create "app"
@@ -28,10 +28,28 @@ https://github.com/hchiam/djangoApp
 * Make website/urls.py include app1/urls.py.
 * Make app1/urls.py identify a request in the URL and call a function in app1/views.py.
 * Make a corresponding response function (in app1/views.py) to the request.
-* Go to http://127.0.0.1:8000/app1 in your browser.
+* http://127.0.0.1:8000/app1
 * (Note to self: website/website/urls.py --> urlpatterns --> app1/urls.py --> views.py function request response)
 
 # connect/synchronize database
-* (Note: db.sqlite3 was automagically created as a default database for testing.)
+* (Note: db.sqlite3 was automagically created as a default database for testing. Can change to MyQSL later.)
 * `python manage.py migrate` (to synchronize code with database)
   * website/settings.py INSTALLED_APPS --> checks app directories for required tables
+
+# create model (how you want to store your data)
+* (Note: in Django, python class variables get converted to database columns.)
+* Create a class ("table") and variables ("columns") in app1/models.py, while specifying data types.
+* Make website/settings.py INSTALLED_APPS include app1/apps.py App1Config() as `'app1.apps.App1Config'`.
+* Remember to synchronize database with models! `python manage.py makemigrations app1`.
+* (Optional to see what the migration does:)
+  * (Migration = change to database.)
+  * (`python manage.py sqlmigrate app1 0001` shows changes that converts the model into an SQL file.)
+  * (Note the "0001_initial.py".)
+* `python manage.py migrate` (so databased synched with code)
+* `python manage.py runserver`
+* (Note to self: website/website/settings.py INSTALLED_APPS --> models.py --> check classes, variables to synch database)
+
+Remember 3 steps when you want to udpate changes to databases:
+1. change website/models.py
+2. `python manage.py makemigrations app1`
+3. `python manage.py migrate`
