@@ -30,3 +30,8 @@ https://github.com/hchiam/djangoApp
 * Make a corresponding response function (in app1/views.py) to the request.
 * Go to http://127.0.0.1:8000/app1 in your browser.
 * (Note to self: website/website/urls.py --> urlpatterns --> app1/urls.py --> views.py function request response)
+
+# connect/synchronize database
+* (Note: db.sqlite3 was automagically created as a default database for testing.)
+* `python manage.py migrate` (to synchronize code with database)
+  * website/settings.py INSTALLED_APPS --> checks app directories for required tables
