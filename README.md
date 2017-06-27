@@ -119,4 +119,20 @@ exit()
 * Make app1/views.py import Album from .models
 * In app1/views.py, you can type `all_albums = Album.objects.all()`, just like in the shell!
 * http://127.0.0.1:8000/app1/ to see all albums
+* (Note: we want to be able to separate the html from the python code for "separation of concerns".)
+
+# create template
+* (Note: Use templates to separate front-end HTMl/CSS files etc. from back-end Python files.)
+* Create template HTML file app1/templates/app1/index.html:
+  * Navigate to website (sub)folder (the one with manage.py in it).
+  * `mkdir app1/templates/`
+  * `mkdir app1/templates/app1`
+  * `touch app1/templates/app1/index.html`
+  * Create template code (see index.html), using html but also a for loop in "kinda python" code inside that html file.
+* Open and write in app1/templates/app1/index.html
+* Have app1/views.py make use of that template:
+  * `from django.template import loader` to be able to load separate template files.
+  * Get database data, get template, get data to put into template, return filled template as HTML response.
+* http://127.0.0.1:8000/app1/ to see it in action.
+
 
