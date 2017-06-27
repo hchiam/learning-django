@@ -96,3 +96,16 @@ exit()
 * `Album.objects.filter(id=5)` to filter by finding result(s) with id=5 (there should only be one or none)
 * `Album.objects.filter(id=6)`
 * `Album.objects.filter(artist__startswith='the ')` using double underscore to get entries with artists starting with 'the '
+
+# admin interface
+* `python manage.py createsuperuser` to create admin
+* set username, email, password
+* http://127.0.0.1:8000/admin/
+* log in
+* Go to app1/admin.py to set up admin access to be able to see and edit databases.
+  * Register Album in admin site.
+* http://127.0.0.1:8000/admin/ (refresh)
+  * You should see App1.
+  * You can click on Albums to see the records.
+  * You can click on a record to edit its contents.
+
