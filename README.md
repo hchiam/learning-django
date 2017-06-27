@@ -119,6 +119,7 @@ exit()
 * Make app1/views.py import Album from .models
 * In app1/views.py, you can type `all_albums = Album.objects.all()`, just like in the shell!
 * http://127.0.0.1:8000/app1/ to see all albums
+  * (Try going to details pages too.)
 * (Note: we want to be able to separate the html from the python code for "separation of concerns".)
 
 # create template
@@ -139,3 +140,9 @@ exit()
 # shortcut for load-render template
 * `from django.shortcuts import render` in app1/views.py so you can use render()
 * http://127.0.0.1:8000/app1/
+
+# activate 404 HTTP error page + message
+* Create and make template HTML file app1/templates/app1/detail.html
+* app1/views.py `from django.http import Http404` and edit `detail()`.
+* Go to http://127.0.0.1:8000/app1/ and try clicking on albums to see details.
+* Try going to 127.0.0.1:8000/app1/54 (or an id that doesn't exist).
