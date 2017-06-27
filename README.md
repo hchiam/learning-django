@@ -36,7 +36,7 @@ https://github.com/hchiam/djangoApp
 * `python manage.py migrate` (to synchronize code with database)
   * website/settings.py INSTALLED_APPS --> checks app directories for required tables
 
-# create & activate models (how you want to store your data)
+# create & activate models (how you want to store your data; tables and columns)
 * (Note: in Django, python class variables get converted to database columns.)
 * Create a class ("table") and variables ("columns") in app1/models.py, while specifying data types.
 * Make website/settings.py INSTALLED_APPS include app1/apps.py App1Config() as `'app1.apps.App1Config'`.
@@ -108,4 +108,10 @@ exit()
   * You should see App1.
   * You can click on Albums to see the records.
   * You can click on a record to edit its contents.
+
+# create another view
+* (Note: view = function that takes a request and returns html)
+* (Note: each view is linked to a URL pattern.)
+* (Note: each URL is linked to an HTML response/page.)
+* Edit app1/urls.py (to find pattern matches for requests) and app1/views.py (to define actions for requests).
 
