@@ -132,7 +132,10 @@ exit()
 * Open and write in app1/templates/app1/index.html
 * Have app1/views.py make use of that template:
   * `from django.template import loader` to be able to load separate template files.
+    * (Note: don't need this in later shortcut tutorial.)
   * Get database data, get template, get data to put into template, return filled template as HTML response.
 * http://127.0.0.1:8000/app1/ to see it in action.
 
-
+# shortcut for load-render template
+* `from django.shortcuts import render` in app1/views.py so you can use render()
+* http://127.0.0.1:8000/app1/
