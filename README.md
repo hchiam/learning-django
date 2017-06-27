@@ -115,3 +115,8 @@ exit()
 * (Note: each URL is linked to an HTML response/page.)
 * Edit app1/urls.py (to find pattern matches for requests) and app1/views.py (to define actions for requests).
 
+# connect request/response to database
+* Make app1/views.py import Album from .models
+* In app1/views.py, you can type `all_albums = Album.objects.all()`, just like in the shell!
+* http://127.0.0.1:8000/app1/ to see all albums
+
