@@ -77,4 +77,22 @@ a.artist
 b.artist
 b.album_title = "High School"
 b.album_title
+exit()
 """
+
+# filtering database results (video #10)
+
+## first, set up so filtered results show basic info
+
+* Make app1/models.py Album class to have a __str__ function to customize the shell output representation of an Album.
+* `python manage.py shell`
+* `from app1.models import Album, Song`
+* `Album.objects.all()` should output a list of strings for album titles/artists, for example, instead of just a list of Album objects.
+* (We didn't do `save()` for that last title, so the last album title udpate didn't actually get saved in the database.)
+* (I accidentally created a duplicate object. I did `Album.objects.all().delete()` to delete all records (and reset id increments) and then `Album.objects.all()` again to check that it actually cleared everything.)
+
+## actually do the filtering
+
+* `Album.objects.filter(id=5)` to filter by finding result(s) with id=5 (there should only be one or none)
+* `Album.objects.filter(id=6)`
+* `Album.objects.filter(artist__startswith='the ')` using double underscore to get entries with artists starting with 'the '
