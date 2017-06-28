@@ -3,6 +3,17 @@
 <!--load specific style sheet-->
 <link rel='stylesheet' type='text/css' href="{% static 'app1/style.css' %}" />
 
+<!--include and use bootstrap-->
+<link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<nav class='navbar navbar-default'>
+    <div class='container-fluid'>
+        <!--logo-->
+        <div class='navbar-header'>
+            <a class='navbar-brand' href="{% url 'app1:index' %}">MyBrandName</a>
+        </div>
+    </div>
+</nav>
+
 <h1>This is the app1 app homepage!</h1>
 {% if all_albums %}
     <ul>

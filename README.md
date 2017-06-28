@@ -259,4 +259,7 @@ Example: https://github.com/buckyroberts/Viberr
 * http://127.0.0.1:8000/app1/ to see the changed background image.
 
 # add Bootstrap style
-* 
+* Include `<link>` in app1/templates/app1/index.html
+* Make changes as desired.
+
+
