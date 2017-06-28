@@ -84,7 +84,7 @@ exit()
 
 ## first, set up so filtered results show basic info
 
-* Make app1/models.py Album class to have a __str__ function to customize the shell output representation of an Album.
+* Make app1/models.py Album class to have a `__str__()` function to customize the shell output representation of an Album.
 * `python manage.py shell`
 * `from app1.models import Album, Song`
 * `Album.objects.all()` should output a list of strings for album titles/artists, for example, instead of just a list of Album objects.
@@ -146,3 +146,46 @@ exit()
 * app1/views.py `from django.http import Http404` and edit `detail()`.
 * Go to http://127.0.0.1:8000/app1/ and try clicking on albums to see details.
 * Try going to 127.0.0.1:8000/app1/54 (or an id that doesn't exist).
+
+# add entries to database
+* (We're going to add a song to an album.)
+* Add to app1/models.py class Song the function `__str__()`.
+  * (Note: don't have to migrate / synch database because not adding attributes / columns.)
+* Add to app1/admin.py import Song model and register Song model in admin site.
+* http://127.0.0.1:8000/admin/ and check Songs
+
+and then create song, set attributes, then save it:
+
+"""
+python manage.py shell
+from app1.models import Album, Song
+album1 = Album.objects.get(id=5)
+album1.artist # should return 'the new boston'
+song = Song() # requires album, file_type, song_title
+song.album = album1
+song.file_type = 'mp3'
+song.song_title = 'some title'
+song.save()
+"""
+
+* http://127.0.0.1:8000/admin/app1/song/ should show that song in there.
+
+## oooor do that in one step with the create function:
+
+(continuing with the same shell)
+
+"""
+album1.song_set.all() # to see it so far
+album1.song_set.create(song_title='I love bacon', file_type='mp3') # album already specified
+album1.song_set.create(song_title='ice cream', file_type='mp3') # album already specified
+"""
+
+* http://127.0.0.1:8000/admin/app1/song/ should show those new songs in there.
+
+"""
+song = album1.song_set.create(song_title='hamburger', file_type='mp3') # make use of returned reference to that song
+song.album
+song.song_title
+album1.song_set.all() # to see all songs in album1
+album1.song_set.count() # gets size of set
+"""

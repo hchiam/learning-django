@@ -18,3 +18,6 @@ class Song(models.Model):
     # on_delete=models.CASCADE: when album deleted. delete all linked songs
     file_type = models.CharField(max_length=10)
     song_title = models.CharField(max_length=250)
+    
+    def __str__(self):
+        return self.song_title
