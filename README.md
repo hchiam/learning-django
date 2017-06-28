@@ -189,3 +189,8 @@ song.song_title
 album1.song_set.all() # to see all songs in album1
 album1.song_set.count() # gets size of set
 ```
+
+# design the details.html template
+* Edit app1/templates/app1/detail.html
+* Refer to app1/models.py for the classes and corresponding variables.
+* http://127.0.0.1:8000/app1/5/ should now show the image and other info available.
