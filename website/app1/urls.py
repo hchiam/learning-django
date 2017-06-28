@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views # imports views.py from within same folder
 
+app_name = 'app1'
+
 urlpatterns = [
     # matches to default view, so goes to /music/:
     url(r'^$', views.index, name='index'),

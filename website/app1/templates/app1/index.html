@@ -3,7 +3,7 @@
     <ul>
         {% for album in all_albums %}
             <!--<li><a href="/app1/{{ album.id }}/">{{ album.album_title }}</a></li>-->
-            <li><a href="{% url 'detail' album.id %}">{{ album.album_title }}</a></li>
+            <li><a href="{% url 'app1:detail' album.id %}">{{ album.album_title }}</a></li>
             <!--url 'detail' gets the url pattern named detail-->
         {% endfor %}
     </ul>

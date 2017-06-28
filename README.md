@@ -203,3 +203,15 @@ album1.song_set.count() # gets size of set
 * Edit app1/templates/app1/index.html
   * `href="{% url 'detail' album.id %}/"` means to use URL pattern named detail and give it parameter variable album.id
 * http://127.0.0.1:8000/app1/ and try going to one of the albums.
+
+# namespaces / pattern reuse
+* (Example: so we can reuse 'detail' pattern in both music/detail and video/detail, but need to specify which one.)
+* Add app namespace `app_name = 'app1'` to app1/urls.py
+* Use that namespace in app1/templates/index.html:
+  * `href="{% url 'detail' album.id %}"` becomes `href="{% url 'app1:detail' album.id %}"`.
+  * I.e. `'detail'` becomes `'app1:detail'`. Means to look for app1 detail pattern instead of just a generic detail pattern.
+* (Note to self: can now reuse patterns.)
+
+# HTTP 404 shortcut
+* Import get_object_or_404 in app1/views.py
+* `album = get_object_or_404(Album, pk=album_id)` replaces a whole try/except statement in detail().
