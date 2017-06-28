@@ -5,9 +5,10 @@ urlpatterns = [
     # matches to default view, so goes to /music/:
     url(r'^$', views.index, name='index'),
     # r'^$' is default page with no request made for app1, and calls views.py function index()
-    # using name='index' for cool stuff in a later tutorial vid
+    # name='index' names this url pattern for referring to when removing hardcoded URLs (completely dynamic-ifying)
     
-    # /music/712/ for example album id=712:
+    # /app1/<album_id>/
+    # /app1/712/ for example album id=712:
     url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
     # (?P<album_id>[0-9]+) will pass in the number as a parameter variable album_id to the response function
     # calls views.detail() and gives it these parameters: request, album_id

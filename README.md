@@ -90,7 +90,7 @@ exit()
 * `from app1.models import Album, Song`
 * `Album.objects.all()` should output a list of strings for album titles/artists, for example, instead of just a list of Album objects.
 * (We didn't do `save()` for that last title, so the last album title udpate didn't actually get saved in the database.)
-* (I accidentally created a duplicate object. I did `Album.objects.all().delete()` to delete all records (and reset id increments) and then `Album.objects.all()` again to check that it actually cleared everything.)
+* (I accidentally created a duplicate object. I did `Album.objects.all().delete()` to delete all records (and hence remote duplicates) and then `Album.objects.all()` again to check that it actually cleared everything.)
 
 ## actually do the filtering
 
@@ -195,3 +195,11 @@ album1.song_set.count() # gets size of set
 * Edit app1/templates/app1/detail.html
 * Refer to app1/models.py for the classes and corresponding variables.
 * http://127.0.0.1:8000/app1/5/ should now show the image and other info available.
+
+# remove hardcoded URLs (i.e. completely dynamic URLs)
+* (i.e. make URLs completely dynamic, in case of website structure changes)
+* (Note: app1/urls.py is a centralized place to edit the URL structure of the website.)
+  * (Note: The `='index'` in `url(r'...', views...., name='index'),` makes http://127.0.0.1:8000/app1/index)
+* Edit app1/templates/app1/index.html
+  * `href="{% url 'detail' album.id %}/"` means to use URL pattern named detail and give it parameter variable album.id
+* http://127.0.0.1:8000/app1/ and try going to one of the albums.
