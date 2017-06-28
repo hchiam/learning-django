@@ -240,3 +240,23 @@ Actually make the form:
 * Try favouriting a couple songs. (You can see updates in the admin page too!)
 * (Note to self: detail.html loop to generate form --> associate each song with song.id --> user selects song + hits favourite --> app1:favourite --> urls.py views.favourite --> views.py favourite())
 * (Note to self: song.id --> selected_song.is_favourite --> selected_song.save() --> redirect back to same page as if didn't leave)
+
+# add style with static files
+Example: https://github.com/buckyroberts/Viberr
+* (We're going to include CSS into the templates.)
+* Create app1/static/app1/ and in that, /images folder and style.css file.
+* Create CSS file app1/static/app1/style.css:
+  * Navigate to website (sub)folder (the one with manage.py in it).
+  * `mkdir app1/static/`
+  * `mkdir app1/static/app1`
+  * `mkdir app1/static/app1/images` (and put a background.png in it)
+  * `touch app1/static/app1/style.css`
+  * Create CSS code (see style.css).
+* Include that CSS file style.css in index.html:
+  * app1/templates/app1/index.html
+  * Load path to static files (like style sheet): `{% load staticfiles %}`.
+  * Load specific files you need like style.css: `href="{% static 'app1/style.css' %}"` is literally for /static/
+* http://127.0.0.1:8000/app1/ to see the changed background image.
+
+# add Bootstrap style
+* 
