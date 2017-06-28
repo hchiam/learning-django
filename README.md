@@ -3,7 +3,7 @@ Learning Django from [YouTube](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=
 
 My older repo: https://github.com/hchiam/djangoApp
 
-What's next are my notes from following the [YouTube tutorial series](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK):
+What's next are my notes from following the [thenewboston's YouTube tutorial series](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK):
 
 # create project "website"
 * `django-admin startproject website` (generates the base required files for any django project)
