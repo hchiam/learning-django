@@ -237,6 +237,6 @@ Actually make the form:
 * (Note: URL pattern for app1:favourite will go to views.py to find favourite())
 * Add function favourite() in app1/views.py
 * Refresh a view like http://127.0.0.1:8000/app1/5/.
-* Try favouriting a couple songs.
+* Try favouriting a couple songs. (You can see updates in the admin page too!)
 * (Note to self: detail.html loop to generate form --> associate each song with song.id --> user selects song + hits favourite --> app1:favourite --> urls.py views.favourite --> views.py favourite())
 * (Note to self: song.id --> selected_song.is_favourite --> selected_song.save() --> redirect back to same page as if didn't leave)
