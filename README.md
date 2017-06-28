@@ -58,7 +58,7 @@ Remember 3 steps when you want to udpate changes to databases:
 * `python manage.py shell` (and now you can write database commands!)
 * Then try these commands, one-by-one:
 
-"""
+```
 from app1.models import Album, Song
 Album.objects.all()
 a = Album(artist="the new boston", album_title="Red", genre="Country", album_logo="https://thenewboston.com/photos/users/2/original/e1ee187e9e0225ba124ba1c7c9dbfa56.png")
@@ -78,7 +78,7 @@ b.artist
 b.album_title = "High School"
 b.album_title
 exit()
-"""
+```
 
 # filtering database results (video #10)
 
@@ -156,7 +156,7 @@ exit()
 
 and then create song, set attributes, then save it:
 
-"""
+```
 python manage.py shell
 from app1.models import Album, Song
 album1 = Album.objects.get(id=5)
@@ -166,7 +166,7 @@ song.album = album1
 song.file_type = 'mp3'
 song.song_title = 'some title'
 song.save()
-"""
+```
 
 * http://127.0.0.1:8000/admin/app1/song/ should show that song in there.
 
@@ -174,18 +174,18 @@ song.save()
 
 (continuing with the same shell)
 
-"""
+```
 album1.song_set.all() # to see it so far
 album1.song_set.create(song_title='I love bacon', file_type='mp3') # album already specified
 album1.song_set.create(song_title='ice cream', file_type='mp3') # album already specified
-"""
+```
 
 * http://127.0.0.1:8000/admin/app1/song/ should show those new songs in there.
 
-"""
+```
 song = album1.song_set.create(song_title='hamburger', file_type='mp3') # make use of returned reference to that song
 song.album
 song.song_title
 album1.song_set.all() # to see all songs in album1
 album1.song_set.count() # gets size of set
-"""
+```
