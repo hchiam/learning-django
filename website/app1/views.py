@@ -3,7 +3,7 @@
 from django.shortcuts import render # instead of using loader or HttpResponse
 # from django.http import Http404
 from django.shortcuts import get_object_or_404 # instead of using Http404
-from .models import Album
+from .models import Album, Song
 
 
 def index(request):
@@ -55,3 +55,54 @@ def detail(request, album_id): # example: album_id=712
     template = 'app1/detail.html'
     template_info = {'album': album} # aka context
     return render(request, template, template_info)
+
+
+def favourite(request, album_id):
+    album = get_object_or_404(Album, pk=album_id)
+    
+    # account for unselected id:
+    try:
+        selected_song = album.song_set.get(pk=request.POST['song']) # request.POST['song'] means get id of the song that was selected
+    except (KeyError, Song.DoesNotExist):
+        # redirect to same template details page but also give error_message
+        template = 'app1/detail.html'
+        template_info = { # aka context
+            'album': album,
+            'error_message': 'You did not select a valid song.',
+        }
+        return render(request, template, template_info)
+    else:
+        # update database, just like we did with the CLI shell:
+        selected_song.is_favourite = True
+        selected_song.save()
+        # return response
+        template = 'app1/detail.html'
+        template_info = {'album': album} # aka context
+        return render(request, template, template_info)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

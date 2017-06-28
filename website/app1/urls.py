@@ -14,4 +14,8 @@ urlpatterns = [
     url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
     # (?P<album_id>[0-9]+) will pass in the number as a parameter variable album_id to the response function
     # calls views.detail() and gives it these parameters: request, album_id
+    
+    # /app1/<album_id>/favourite/
+    url(r'^(?P<album_id>[0-9]+)/favourite/$', views.favourite, name='favourite'),
+    # this URL pattern looks at views.favourite()
 ]

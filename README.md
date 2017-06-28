@@ -215,3 +215,28 @@ album1.song_set.count() # gets size of set
 # HTTP 404 shortcut
 * Import get_object_or_404 in app1/views.py
 * `album = get_object_or_404(Album, pk=album_id)` replaces a whole try/except statement in detail().
+
+# create form (in the easiest way to understand anyways)
+* Make app1/models.py Song class have another attribute: `is_favourite`
+* Make change file: `python manage.py makemigrations app1`
+* Apply change to database: `python manage.py migrate`
+* Restart server: Ctrl+C and then `python manage.py runserver` (in that separate Terminal).
+* Refresh a view like http://127.0.0.1:8000/app1/5/ to see no errors.
+
+You might want to have a URL that doesn't link to a template, like a "logging out" page that runs and then automatically redirects to another page.
+* App a favourite URLs pattern in app1/urls.py
+
+Actually make the form:
+* Create a `<form>` in app1/templates/app1/detail.html view
+  * `action="..."` is the URL pattern to send data to: `action="{% url 'app1:favourite' album.id %}"`
+  * `method="post"`
+  * `csrf_token` is for security [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
+  * Loop through form elements. `{{ forloop.counter }}` auto-increments.
+  * `name="..."` enables reference in the code.
+* (Note: detail.html's action will go to urls.py to find the URL pattern for app1:favourite)
+* (Note: URL pattern for app1:favourite will go to views.py to find favourite())
+* Add function favourite() in app1/views.py
+* Refresh a view like http://127.0.0.1:8000/app1/5/.
+* Try favouriting a couple songs.
+* (Note to self: detail.html loop to generate form --> associate each song with song.id --> user selects song + hits favourite --> app1:favourite --> urls.py views.favourite --> views.py favourite())
+* (Note to self: song.id --> selected_song.is_favourite --> selected_song.save() --> redirect back to same page as if didn't leave)
