@@ -154,7 +154,7 @@ exit()
 * Add to app1/admin.py import Song model and register Song model in admin site.
 * http://127.0.0.1:8000/admin/ and check Songs
 
-and then create song, set attributes, then save it:
+and then create song, set attributes, and save it:
 
 ```
 python manage.py shell
