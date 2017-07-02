@@ -3,6 +3,8 @@ Learning Django from [YouTube](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=
 
 My older repo: https://github.com/hchiam/djangoApp
 
+Boilerplate code: https://github.com/hchiam/Django-REST-Boilerplate
+
 What's next are my notes from following [thenewboston's YouTube tutorial series](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK):
 
 # create project "website"
