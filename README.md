@@ -262,4 +262,12 @@ Example: https://github.com/buckyroberts/Viberr
 * Include `<link>` in app1/templates/app1/index.html
 * Make changes as desired.
 
-
+# build up more of navigation menu
+* app1/templates/index.html
+  * more for style: classes
+  * more for function: type, data-target, role, etc.
+* Using: bootstrap css and js, google font, jquery js, and static file ('local')
+* Make sure app1/static/app1/style.css is being used after bootstrap.
+* Edit app1/static/app1/style.css
+* Try resizing http://127.0.0.1:8000/app1/ to small width to see header's 3 icon-bars for expanding the navigation menu.
+* Test out the navigation menu's buttons and search form.
