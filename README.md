@@ -276,3 +276,12 @@ Example: https://github.com/buckyroberts/Viberr
 * Edit app1/static/app1/style.css
 * Try resizing http://127.0.0.1:8000/app1/ to small width to see header's 3 icon-bars for expanding the navigation menu.
 * Test out the navigation menu's buttons and search form.
+
+# create base template (e.g. consistent navigation bar and styling)
+* Create a new html file app1/templates/app1/base.html
+  * **Remove** the stylesheets and scripts and navbar from app1/templates/app1/index.html and **move** those into app1/templates/app1/base.html where appropriate (these will be things you'll need on every page).
+  * Create a "block" to hold a "customizable area" in that base template: example: a block called "body": `{% block body %} {% endblock %}`
+* Use that template by including it in the other .html template files: `{% extends 'app1/base.html' %}`
+* Tell the base template the "custom area": `{% block body %}` (your original .html code here) `{% endblock %}`
+* (Note to self: you can have multiple "block" areas in the same base.html and in the files that use it!)
+  * You can `<title>{% block title %}default text here{% endblock %}</title>` in the header section to overwrite!

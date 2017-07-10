@@ -1,30 +1,40 @@
-<img src="{{ album.album_logo }}">
+{% extends 'app1/base.html' %}
 
-<h1>{{ album.album_title }}</h1>
-<h3>{{ album.artist }}</h3>
+<!-- the following goes into the base.html "custom area" block named "title": -->
+{% block title %}Album Details{% endblock %}
 
-<!--<ul>-->
-<!--    {% for song in album.song_set.all %}-->
-<!--        <li>{{ song.song_title }} - {{ song.file_type }}</li>-->
-<!--    {% endfor %}-->
-<!--</ul>-->
+<!-- the following goes into the base.html "custom area" block named "body": -->
+{% block body %}
 
-{% if error_message %}
-    <p><strong>{{ error_message }}</strong></p>
-{% endif %}
+    <img src="{{ album.album_logo }}">
 
-<!--action = the URL pattern to send data to-->
-<form action="{% url 'app1:favourite' album.id %}" method="post">
-    {% csrf_token %}
-    {% for song in album.song_set.all %}
-        <input type='radio' id='song{{ forloop.counter }}' name='song' value='{{ song.id }}' />
-        <label for='song{{ forloop.counter }}'>
-            {{ song.song_title }}
-            {% if song.is_favourite %}
-                <img src='http://findicons.com/files/icons/1620/crystal_project/22/knewstuff.png' />
-            {% endif %}
-        </label>
-        <br>
-    {% endfor %}
-    <input type='submit' value='Favourite'>
-</form>
+    <h1>{{ album.album_title }}</h1>
+    <h3>{{ album.artist }}</h3>
+
+    <!--<ul>-->
+    <!--    {% for song in album.song_set.all %}-->
+    <!--        <li>{{ song.song_title }} - {{ song.file_type }}</li>-->
+    <!--    {% endfor %}-->
+    <!--</ul>-->
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    <!--action = the URL pattern to send data to-->
+    <form action="{% url 'app1:favourite' album.id %}" method="post">
+        {% csrf_token %}
+        {% for song in album.song_set.all %}
+            <input type='radio' id='song{{ forloop.counter }}' name='song' value='{{ song.id }}' />
+            <label for='song{{ forloop.counter }}'>
+                {{ song.song_title }}
+                {% if song.is_favourite %}
+                    <img src='http://findicons.com/files/icons/1620/crystal_project/22/knewstuff.png' />
+                {% endif %}
+            </label>
+            <br>
+        {% endfor %}
+        <input type='submit' value='Favourite'>
+    </form>
+
+{% endblock %}
