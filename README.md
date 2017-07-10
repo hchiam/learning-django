@@ -7,6 +7,9 @@ Boilerplate code: https://github.com/hchiam/Django-REST-Boilerplate
 
 What's next are my notes from following [thenewboston's YouTube tutorial series](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK):
 
+# get django
+* Have Anaconda installed? Do this: `conda install django`
+
 # create project "website"
 * `django-admin startproject website` (generates the base required files for any django project)
 * (Note to self: to remember what files do, read names as if reading directory paths.)
