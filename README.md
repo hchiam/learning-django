@@ -285,3 +285,17 @@ Example: https://github.com/buckyroberts/Viberr
 * Tell the base template the "custom area": `{% block body %}` (your original .html code here) `{% endblock %}`
 * (Note to self: you can have multiple "block" areas in the same base.html and in the files that use it!)
   * You can `<title>{% block title %}default text here{% endblock %}</title>` in the header section to overwrite!
+
+# generic views (to write less code with classes, instead of functions in views.py)
+* (Note to self: website pages come in 2 basic patterns: **a list of objects** or **details on one object**. Example: Youtube=list of videos --> go to video --> video details)
+  * (Django automates generating these 2 basic patterns: *list generic view* and *detail generic view*.)
+* Rewrite app1/views.py to use classes instead of functions, and save a lot of code.
+  * (Note: query results are put into a variable named `object_list` by default.)
+  * `IndexView(generic.ListView)`
+  * `DetailView(generic.DetailView)`
+* Rewrite app1/urls.py urlpatterns to use the new classes (and pk for the detail view).
+  * `views.IndexView.as_view()`
+  * `views.DetailView.as_view()`
+* http://127.0.0.1:8000/app1/ should have no albums to show because need to use `object_list` in your views.py code, or rename it to store view data in a variable for template to use, e.g.: `context_object_name = 'all_albums'` in views.py.
+* http://127.0.0.1:8000/app1/ should work now, either way.
+* (Note: in video 29 on generic views, detail.html and index.html have the "favourite"-related things removed.)
