@@ -299,3 +299,26 @@ Example: https://github.com/buckyroberts/Viberr
 * http://127.0.0.1:8000/app1/ should have no albums to show because need to use `object_list` in your views.py code, or rename it to store view data in a variable for template to use, e.g.: `context_object_name = 'all_albums'` in views.py.
 * http://127.0.0.1:8000/app1/ should work now, either way.
 * (Note: in video 29 on generic views, detail.html and index.html have the "favourite"-related things removed.)
+
+## (before the model form tutorial videos 30-31)
+https://github.com/Ananthu/Django-thenewboston-youTube-classes
+
+# model forms - CreateView part (videos 30-31)
+* (Note: model forms help generate form html and also form validation.)
+* In app1/models.py:
+  * Add `from django.core.urlresolvers import reverse`
+  * Create `get_absolute_url()` to get the new url for the Album created by the form.
+* In app1/views.py:
+  * Add `from django.views.generic.edit import CreateView, UpdateView, DeleteView`
+  * Create `class AlbumCreate(CreateView)` to create a new Album from the form.
+* In app1/urls.py:
+  * Assign a new URL pattern corresponding to the new view in views.py (namely, AlbumCreate).
+* Create template app1/album_form.html for it to go to (naming format: "modelnameinlowercase_form.html").
+  * (Note: `include 'app1/templates/app1/form-template.html'` is the generic form template to keep code DRY.)
+* Create app1/templates/app1/form-template.html
+* Add link to that navbar button "Add Album" in base.html so user can get to the form.
+  * (Note: Replace '#'. Make sure the link matches the URL format in urls.py: `href="{% url 'app1:album-add' %}"`)
+* http://127.0.0.1:8000/app1/
+  * Click on "Add Album" to see the new album form!
+  * Try not entering anything and hitting Submit --> should get errors for required fields using `field.errors`.
+  * Try actually filling everything in and submitting --> shoudl get redirected to details view of the new album.

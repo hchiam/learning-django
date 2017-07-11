@@ -21,4 +21,7 @@ urlpatterns = [
     # # /app1/<album_id>/favourite/
     # url(r'^(?P<album_id>[0-9]+)/favourite/$', views.favourite, name='favourite'),
     # # this URL pattern looks at views.favourite()
+
+    # /app1/album/add/      (no primary key because will be just created)
+    url(r'^album/add/$', views.AlbumCreate.as_view(), name='album-add'),
 ]

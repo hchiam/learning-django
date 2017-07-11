@@ -1,5 +1,7 @@
 from django.views import generic
 from .models import Album
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # list of objects generic view:
 class IndexView(generic.ListView):
@@ -9,11 +11,20 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Album.objects.all()
 
+
 # details on object generic view:
 class DetailView(generic.DetailView):
     model = Album
-
     template_name = 'app1/detail.html'
+
+
+# form creation
+class AlbumCreate(CreateView):
+    # specify you're creating a new Album
+    model = Album
+    # specify which attributes of an Album you'll be filling in the form
+    fields = ['artist','album_title','genre','album_logo']
+
 
 
 # # before video 29:
