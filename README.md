@@ -1,6 +1,8 @@
 # learning-django
 Learning Django from [YouTube](https://www.youtube.com/watch?v=qgGIqRFvFFk&list=PL6gx4Cwl9DGBlmzzFcLgDhKTTfNLfX1IK)
 
+Just on of the things I'm learning. https://github.com/hchiam/learning
+
 My older repo: https://github.com/hchiam/djangoApp
 
 Boilerplate code: https://github.com/hchiam/Django-REST-Boilerplate
